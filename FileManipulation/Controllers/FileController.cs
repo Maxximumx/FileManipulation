@@ -62,11 +62,15 @@ namespace FileManipulation.Controllers
             }
             TempData["Message"] = "Файл успешно удален";
             return RedirectToAction("Index");
+
+            
         }
 
-
-
-
+        public VirtualFileResult Download(string imgdel)
+        {
+            var filepath = Path.Combine("~/File/", imgdel);
+            return File(filepath, "text/plain", imgdel);
+        }
 
 
     }

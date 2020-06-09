@@ -16,14 +16,16 @@
                 <th>Название файла</th>
                 <th>Файл</th>
                 <th>Действие</th>
+                <th>Действие</th>
             </tr>
             @foreach (var item in Model.FileManup)
             {
-            <tr>
-                <td>@item.Name</td>
-                <td><img src="~/File/@item.Name" height="80" width="120" /></td>
-                <td><a href="@Url.Action("Delete", "File", new { imgdel=@item.Name})">Удалить</a></td>
-            </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td><img src="~/File/@item.Name" height="80" width="120" /></td>
+            <td><a href="@Url.Action("Delete", "File", new { imgdel=@item.Name})">Удалить</a></td>
+            <td><a href="@Url.Action("Download", "File" , new { imgdel=@item.Name})">Скачать</a></td>
+        </tr>
             }
         </table>
     </form>
