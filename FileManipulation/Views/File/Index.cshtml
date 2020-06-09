@@ -10,5 +10,21 @@
         <input type="submit" value="Загрузить" />
         <br /><br /><br />
         <h4>@TempData["Message"]</h4>
+
+        <table class="table">
+            <tr>
+                <th>Название файла</th>
+                <th>Файл</th>
+                <th>Действие</th>
+            </tr>
+            @foreach (var item in Model.FileManup)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td><img src="~/File/@item.Name" height="80" width="120" /></td>
+                <td><a href="@Url.Action("Delete", "File", new { imgdel=@item.Name})">Удалить</a></td>
+            </tr>
+            }
+        </table>
     </form>
 </center>

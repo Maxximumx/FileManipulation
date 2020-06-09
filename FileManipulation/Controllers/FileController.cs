@@ -52,6 +52,18 @@ namespace FileManipulation.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(string imgdel)
+        {
+            imgdel = Path.Combine(_manup.WebRootPath, "File", imgdel);
+            FileInfo fi = new FileInfo(imgdel);
+            if (fi != null)
+            {
+                System.IO.File.Delete(imgdel);
+            }
+            TempData["Message"] = "Файл успешно удален";
+            return RedirectToAction("Index");
+        }
+
 
 
 
