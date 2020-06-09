@@ -1,0 +1,14 @@
+﻿@model FileManipulation.Models.ManupClass
+@{
+    ViewData["Title"] = "Home Page";
+}
+<center>
+    <h1>Домашняя работа</h1>
+    <br />
+    <form asp-controller="File" asp-action="Index" method="post" enctype="multipart/form-data">
+        <input type="file" name="fileman" />
+        <input type="submit" value="Загрузить" />
+        <br /><br /><br />
+        <h4>@TempData["Message"]</h4>
+    </form>
+</center>
